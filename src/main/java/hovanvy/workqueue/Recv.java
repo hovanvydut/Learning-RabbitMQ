@@ -16,7 +16,7 @@ import java.util.concurrent.TimeoutException;
 
 // Consumer
 public class Recv {
-    private final static String QUEUE_NAME = "task_queue";
+    private final static String QUEUE_NAME = "task_queue2";
 
     public static void main(String[] args) throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
@@ -37,11 +37,13 @@ public class Recv {
                 doWork(message);
             } finally {
                 System.out.println(" [x] Done");
+//                channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
             }
 
         };
 
-        boolean autoAcknowledgement = false;
+//        boolean autoAcknowledgement = false;
+        boolean autoAcknowledgement = true;
         channel.basicConsume(QUEUE_NAME, autoAcknowledgement, deliverCallback, consumerTag -> {
             System.out.println("hey hey hey");
         });

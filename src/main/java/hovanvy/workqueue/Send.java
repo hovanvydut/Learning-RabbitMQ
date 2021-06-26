@@ -14,7 +14,7 @@ import java.util.concurrent.TimeoutException;
 
 // Publisher
 public class Send {
-    private static final String QUEUE_NAME = "task_queue";
+    private static final String QUEUE_NAME = "task_queue2";
 
     public static void main(String[] args) throws IOException, TimeoutException, InterruptedException {
         ConnectionFactory factory = new ConnectionFactory();
